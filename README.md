@@ -3,7 +3,7 @@
 A simple and efficient web application for students to submit hostel complaints and for wardens to manage and resolve them. Built using **HTML, CSS, JavaScript, Firebase Authentication, and Firestore**.
 
 🔗 **Live Demo:**  
-https://your-project.web.app  
+https://hostel-cms.web.app 
 *(Replace with your own Firebase hosting URL)*
 
 ---
