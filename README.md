@@ -44,7 +44,3 @@ https://hostel-cms.web.app
 
 ## 👨‍💻 Author
 Vaishnavi Niwalkar
-
-
-
-## 📁 Folder Structure
