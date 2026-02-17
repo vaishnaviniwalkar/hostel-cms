@@ -1,0 +1,236 @@
+/* -------------------------
+ Global Styling & Theme
+-------------------------- */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+
+/* -------------------------
+ Reusable Card Style
+-------------------------- */
+.card {
+    background: #fff;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 22px;
+}
+
+/* -------------------------
+ Buttons
+-------------------------- */
+.btn {
+    background: #2563eb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background: #1e4fc4;
+}
+
+/* -------------------------
+ Input Fields
+-------------------------- */
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    background: #f9fafb;
+}
+
+/* -------------------------
+ Navbar
+-------------------------- */
+.navbar {
+    background: white;
+    padding: 18px 50px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 22px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    color: #2563eb;
+}
+
+/* -------------------------
+ Page Container
+-------------------------- */
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 120px auto;
+}
+
+/* -------------------------
+ Login Selection Cards
+-------------------------- */
+.select-box {
+    width: 48%;
+    padding: 24px;
+    border-radius: 16px;
+    border: 2px solid #dbeafe;
+    background: #f8fbff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.select-box:hover {
+    border-color: #2563eb;
+}
+
+/* -------------------------
+ Sidebar (Dashboard)
+-------------------------- */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 25px 20px;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.06);
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.sidebar a:hover, .sidebar .active {
+    background: #e8f0ff;
+    color: #2563eb;
+}
+
+/* -------------------------
+ Dashboard Content Area
+-------------------------- */
+.dashboard {
+    margin-left: 290px;
+    padding: 40px;
+}
+
+/* Stat Boxes */
+.stat-box {
+    width: 30%;
+    padding: 22px;
+    color: #fff;
+    border-radius: 16px;
+    margin-right: 20px;
+}
+
+.bg-blue { background: #3b82f6; }
+.bg-yellow { background: #facc15; color: #333; }
+.bg-green { background: #4ade80; }
+
+/* Complaint Cards */
+.complaint-item {
+    padding: 18px;
+    background: white;
+    border-radius: 12px;
+    border-left: 5px solid #2563eb;
+    margin-bottom: 12px;
+}
+/* -------------------------
+ HERO SECTION
+-------------------------- */
+.hero {
+    width: 85%;
+    max-width: 1000px;
+    margin: 80px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #1f2937;
+}
+
+.hero-content p {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    padding: 14px 28px;
+    font-size: 17px;
+}
+
+/* Image */
+.hero-image img {
+    width: 340px;
+    animation: float 2.5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* -------------------------
+ NAV BUTTON
+-------------------------- */
+.btn-nav {
+    padding: 10px 18px;
+    background: #2563eb;
+    color: white !important;
+    border-radius: 8px;
+}
+
+.btn-nav:hover {
+    background: #1e4fc4;
+}
+
+/* -------------------------
+ FOOTER
+-------------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    margin-top: 40px;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+    font-size: 14px;
+    color: #555;
+}

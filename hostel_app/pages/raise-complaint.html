@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raise Complaint | Hostel CMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🏠 Hostel CMS</h2>
+    <a href="student-dashboard.html">📊 Dashboard</a>
+    <a class="active" href="raise-complaint.html">➕ Raise Complaint</a>
+    
+    <button id="logoutBtn" class="btn" style="margin-top:40px; background:#ef4444;">
+        Logout
+    </button>
+</div>
+
+<!-- CONTENT -->
+<div class="dashboard">
+    <h1>Submit a New Complaint</h1>
+    <p>Please provide details about the issue you are facing.</p>
+
+    <div class="card" style="margin-top:25px;">
+
+        <label>Complaint Title</label>
+        <input type="text" id="title" placeholder="e.g. Water leakage in bathroom">
+
+        <label>Category</label>
+        <select id="category">
+            <option>Plumbing</option>
+            <option>Electricity</option>
+            <option>Cleanliness</option>
+            <option>Internet</option>
+            <option>Room Issue</option>
+        </select>
+
+        <label>Location</label>
+        <input type="text" id="location" placeholder="Room No / Floor / Area">
+
+        <label>Description</label>
+        <textarea id="description" rows="4" placeholder="Describe the issue in detail..."></textarea>
+
+        <button class="btn" id="submitComplaint">Submit Complaint</button>
+
+        <p id="msg" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script type="module" src="../js/firebase.js"></script>
+<script type="module" src="../js/student.js"></script>
+<script type="module">
+import { auth, db } from "../js/firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+
+const btn = document.getElementById("submitComplaint");
+const msg = document.getElementById("msg");
+let userId = null;
+
+// Protect page
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "../index.html";
+        return;
+    }
+    userId = user.uid;
+});
+
+// Submit complaint
+btn.addEventListener("click", async () => {
+    const title = document.getElementById("title").value;
+    const category = document.getElementById("category").value;
+    const location = document.getElementById("location").value;
+    const description = document.getElementById("description").value;
+
+    if (!title || !description || !location) {
+        msg.textContent = "Please fill all fields.";
+        msg.style.color = "red";
+        return;
+    }
+
+    await addDoc(collection(db, "complaints"), {
+        studentId: userId,
+        title,
+        category,
+        location,
+        description,
+        status: "Pending",
+        createdAt: serverTimestamp()
+    });
+
+    msg.textContent = "Complaint submitted successfully!";
+    msg.style.color = "green";
+
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("location").value = "";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Complaints | Warden Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .search-box {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            width: 260px;
+        }
+
+        .filter-select {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🛡️ Warden Panel</h2>
+
+    <a href="warden-dashboard.html">📊 Dashboard</a>
+    <a class="active" href="warden-complaints.html">📄 All Complaints</a>
+    <a href="warden-analytics.html">📈 Analytics</a>
+    <a href="warden-profile.html">👤 Profile</a>
+
+    <button id="logoutBtn" class="btn" style="margin-top:40px; background:#ef4444; width:100%;">
+        Logout
+    </button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="dashboard">
+
+    <h1>All Complaints</h1>
+    <p>Manage all complaints submitted by students</p>
+
+    <!-- Filter Controls -->
+    <div class="filter-row">
+        <input type="text" id="searchBox" class="search-box" placeholder="Search by title or category..." oninput="searchComplaints()">
+
+        <select id="statusFilter" class="filter-select" onchange="applyFilters()">
+            <option value="all">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+        </select>
+
+        <select id="categoryFilter" class="filter-select" onchange="applyFilters()">
+            <option value="all">All Categories</option>
+            <option>Plumbing</option>
+            <option>Electricity</option>
+            <option>Cleanliness</option>
+            <option>Internet</option>
+            <option>Room Issue</option>
+        </select>
+    </div>
+
+    <!-- Complaints List -->
+    <div class="card">
+        <h3>Complaint Records</h3>
+        <div id="complaintList"></div>
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script type="module" src="../js/firebase.js"></script>
+<script type="module" src="../js/warden.js"></script>
+
+<script>
+// Local filter helpers (Used on top of Firebase realtime data)
+window.searchComplaints = function () {
+    let searchText = document.getElementById("searchBox").value.toLowerCase();
+    let items = document.querySelectorAll(".complaint-item");
+
+    items.forEach(item => {
+        let title = item.getAttribute("data-title").toLowerCase();
+        let category = item.getAttribute("data-category").toLowerCase();
+
+        item.style.display =
+            title.includes(searchText) || category.includes(searchText)
+                ? "block"
+                : "none";
+    });
+}
+
+window.applyFilters = function () {
+    let status = document.getElementById("statusFilter").value;
+    let category = document.getElementById("categoryFilter").value;
+    let items = document.querySelectorAll(".complaint-item");
+
+    items.forEach(item => {
+        let itemStatus = item.getAttribute("data-status");
+        let itemCategory = item.getAttribute("data-category");
+
+        let statusMatch = (status === "all" || status === itemStatus);
+        let categoryMatch = (category === "all" || category === itemCategory);
+
+        item.style.display = (statusMatch && categoryMatch) ? "block" : "none";
+    });
+}
+</script>
+
+</body>
+</html>

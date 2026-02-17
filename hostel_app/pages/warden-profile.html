@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warden Profile</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .profile-box {
+            max-width: 600px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .profile-box label {
+            font-weight: 600;
+            margin-top: 12px;
+            display: block;
+        }
+
+        .profile-box input {
+            width: 100%;
+            margin-top: 6px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+        }
+
+        .save-btn {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background: #1e4ec4;
+        }
+
+        .status-msg {
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🛡️ Warden Panel</h2>
+
+    <a href="warden-dashboard.html">📊 Dashboard</a>
+    <a href="warden-complaints.html">📄 All Complaints</a>
+    <a href="warden-analytics.html">📈 Analytics</a>
+    <a class="active" href="warden-profile.html">👤 Profile</a>
+
+    <button id="logoutBtn" class="btn" style="margin-top:40px; background:#ef4444; width:100%;">
+        Logout
+    </button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="dashboard">
+
+    <h1>Warden Profile</h1>
+    <p>Manage your personal details</p>
+
+    <div class="profile-box">
+
+        <label>Name</label>
+        <input type="text" id="wardenName" placeholder="Full name">
+
+        <label>Email</label>
+        <input type="email" id="wardenEmail" placeholder="Email" disabled style="background:#f1f1f1;">
+
+        <label>Phone</label>
+        <input type="text" id="wardenPhone" placeholder="Phone number">
+
+        <button class="save-btn" id="saveProfileBtn">Save Changes</button>
+
+        <p id="statusMsg" class="status-msg"></p>
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script type="module" src="../js/firebase.js"></script>
+<script type="module" src="../js/warden-profile.js"></script>
+
+</body>
+</html>

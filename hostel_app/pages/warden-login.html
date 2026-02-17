@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warden Login | Hostel Complaint Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <h2 class="title">Warden Login</h2>
+            <p class="subtitle">Sign in to manage complaints</p>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="wardenEmail" placeholder="warden@example.com">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="wardenPassword" placeholder="Enter password">
+            </div>
+
+            <button class="btn" onclick="wardenLogin()">Login</button>
+
+            <p class="back-link">
+                <a href="index.html">← Back to Home</a>
+            </p>
+
+            <p id="errorMsg" class="error"></p>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/warden-login.js"></script>
+
+</body>
+</html>

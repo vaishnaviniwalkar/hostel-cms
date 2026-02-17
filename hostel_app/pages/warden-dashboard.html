@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warden Dashboard | Hostel CMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🛡️ Warden Panel</h2>
+
+    <a href="warden-dashboard.html">📊 Dashboard</a>
+    <a  href="warden-complaints.html">📄 All Complaints</a>
+    <a href="warden-analytics.html">📈 Analytics</a>
+    <a href="warden-profile.html">👤 Profile</a>
+
+    <button id="logoutBtn" class="btn" style="margin-top:40px; background:#ef4444; width:100%;">
+        Logout
+    </button>
+</div>
+<!-- MAIN CONTENT -->
+<div class="dashboard">
+
+    <h1>Complaint Management</h1>
+    <p>View and update all complaints submitted by students.</p>
+
+    <!-- FILTER BUTTONS -->
+    <div style="margin-top:20px; display:flex; gap:10px;">
+        <button class="btn" onclick="filterComplaints('all')" style="background:#1e40af;">All</button>
+        <button class="btn" onclick="filterComplaints('Pending')" style="background:#eab308;">Pending</button>
+        <button class="btn" onclick="filterComplaints('In Progress')" style="background:#f97316;">In Progress</button>
+        <button class="btn" onclick="filterComplaints('Resolved')" style="background:#16a34a;">Resolved</button>
+    </div>
+
+    <!-- COMPLAINT LIST -->
+    <div class="card" style="margin-top:25px;">
+        <h3>All Complaints</h3>
+        <div id="complaintList"></div>
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script type="module" src="../js/firebase.js"></script>
+<script type="module" src="../js/warden.js"></script>
+
+</body>
+</html>
