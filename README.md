@@ -4,7 +4,6 @@ A simple and efficient web application for students to submit hostel complaints 
 
 🔗 **Live Demo:**  
 https://hostel-cms.web.app 
-*(Replace with your own Firebase hosting URL)*
 
 ---
 
